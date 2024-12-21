@@ -15,7 +15,21 @@
 // }
 
 // export default App
+class Person {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+  greet() {
+    console.log('hello, my name is ' + this.name)
+  }
+}
 
+const adam = new Person('Sandesh Ondra', 29)
+adam.greet()
+
+const janja = new Person('Aayan Garnbret', 23)
+janja.greet()
 
 const Header = ({ courseName, numParts }) => {
   return (
@@ -34,12 +48,46 @@ const Part = ({ name, exercises }) => {
 
 const Total = ({ totalExercises }) => {
   return (
-    <p>Total number of exercises is {totalExercises}</p>
+    <h3>Total number of exercises is {totalExercises}</h3>
   );
 };
 
-const App = () => {
+const App = () => { 
   console.log('San')
+  const t=['first event','second event','third event']
+  console.log('total number of event is', t.length)
+  t.forEach(value=>{
+    console.log('name of event is ', value)
+  })
+  const arto = {
+    name: 'Arto Hellas',
+    age: 35,
+    education: 'PhD',
+  
+    greet: function() {
+      console.log('hello, my name is ' + this.name)
+    },
+    doAddition: function(a,b){
+      console.log('do addition function',a+b)
+     
+    },
+    
+  }
+  arto.doAddition(1,4)
+
+  arto.growOlder = function() {
+    this.age += 1
+  }
+  const referenceAddition=arto.doAddition
+  referenceAddition(5,78)
+  
+  console.log('Age without addition',arto.age)   // 35 is printed
+  arto.growOlder()
+  console.log('age with addition',arto.age)   // 36 is printed
+
+  
+  
+  arto.greet()  // "hello, my name is Arto Hellas" gets printed
   const course = {
             name: 'Half Stack application development',
             parts: [
